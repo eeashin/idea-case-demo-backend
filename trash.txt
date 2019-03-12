@@ -1,0 +1,44 @@
+function idsByBudgetLimit(res, budget,isAbove){
+let isAbove = convertBoolean(isAbove);
+	if (isNaN(budget) || Number(budget)<0 || isAbove==="null"){
+		console.log(typeof budget);
+		res.writeHead(500, { 'Content-Type': 'text/plain' });
+		res.end("Must enter a valid budget amount");
+		console.error("Must enter a valid budget amount");
+
+	}else{
+		//if(isAbove === "true")
+			let result = [];
+		jsonfile.readFile(filePath)
+		.then((obj)=>{
+				if(isAbove){
+					for (let i = 0; i < obj.length; i++) {
+					if (obj[i].budget > Number(budget)) {
+						result.push(obj[i].id);
+					}
+				}
+				}else{
+					for (let i = 0; i < obj.length; i++) {
+					if (obj[i].budget <= Number(budget)) {
+						result.push(obj[i].id);
+					}
+				}
+				};
+				if (result.length !== 0) {
+					res.writeHead(200, { 'Content-Type': 'text/plain' });
+					res.end(JSON.stringify(result));
+					console.log("Reading server side JSON file OK.\n" + "Item found: " + JSON.stringify(result));
+				} else {
+						res.writeHead(404, { 'Content-Type': 'text/plain' });
+					res.end("Reading server side JSON file OK.\n" + "No budget more than = " + budget + ".");
+					console.log("Reading server side JSON file OK.\n" + "No budget more than = " + budget + ".");
+				};
+		
+		})
+			.catch(() => {
+				res.writeHead(500, { 'Content-Type': 'text/plain' });
+				console.error("Reading server side JSON file failed.");
+			}
+			);
+	}
+}

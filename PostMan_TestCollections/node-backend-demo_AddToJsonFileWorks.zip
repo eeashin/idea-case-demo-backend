@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "2045c05f-7b02-47bc-a66d-b396d68e470b",
+		"name": "Player Test FAILS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3001/addPlayer FAIL - Already exists",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Alfred\", \"points\":1}"
+				},
+				"url": {
+					"raw": "localhost:3001/addPlayer",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"addPlayer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

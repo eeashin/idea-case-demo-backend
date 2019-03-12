@@ -1,0 +1,44 @@
+Install PostMan 
+(Be paranoid while triple-checking the installation URLs to make sure of no foul!)
+
+Simple version => This time NO 
+    - Authorization (OAuth tokens or such) 
+
+GET requests are pretty straight forward:
+- make sure GET Http verb selected from left
+- write the request URL, sometimes e.g. http://localhost:3001/players  or /player/all    or old-fashioned /listPlayers
+- (write possible GET requesrt parameters, e.g. id (KEY) 1001 (VALUES))
+- Press "Send"
+     - Look at the response at the bottom! (body, headers) ...
+
+(When happy, you can press Save... see below)
+
+
+POST requests are a step trickier:
+- make sure POST Http verb selected from left 
+- write the request URL, sometimes e.g. http://localhost:3001/player     or old-fashioned /addPlayer
+- write the JSON POST data to the body: 
+           * Click on "Body", 
+           * then select "raw", 
+           * then change "Text" to "JSON (application/json)"
+- now write the JSON to the editor window in the middle
+- Press "Send"
+     - Look at the response at the bottom! (body, headers) ...
+
+(When happy, you can press Save... see below)
+
+
+Saving:
+- Press "Save"
+Then, if no suitable collection yet, 
+- press the "+Create Collection", name it e.g. "Player Test Requests"
+- press the symbol meaning OK
+
+- Then continue saving the request:
+Request name: (A descriptive name, e.g. 
+            Player ADD OK, 
+            Player ADD FAIL(name missing), 
+            or so
+Description: (Optional, but useful e.g. for the intentionally failing ones)
+Click on the wanted Collection 
+

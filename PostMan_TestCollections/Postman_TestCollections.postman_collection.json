@@ -1,0 +1,295 @@
+{
+	"info": {
+		"_postman_id": "7b2b8136-03b4-41d1-a8b2-e206aa0c64e5",
+		"name": "Postman_TestCollections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CategoryAllTest",
+			"item": [
+				{
+					"name": "http://localhost:3001/category/all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c6372632-aceb-4608-ac64-5c63db841bee",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3001/category?id=1001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"category"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1001"
+								}
+							]
+						},
+						"description": "category all postman response ok"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CategoryById",
+			"item": [
+				{
+					"name": "http://localhost:3001/category?id=1001",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c6372632-aceb-4608-ac64-5c63db841bee",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3001/category?id=1001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"category"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1001"
+								}
+							]
+						},
+						"description": "Category by ID OK"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3001/category?id=1009",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c6372632-aceb-4608-ac64-5c63db841bee",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3001/category?id=1009",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"category"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1009"
+								}
+							]
+						},
+						"description": "No Item Found"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AddItemToCategory",
+			"item": [
+				{
+					"name": "http://localhost:3001/category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c6372632-aceb-4608-ac64-5c63db841bee",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1006,\n    \"name\": \"Purchases1\",\n    \"budget\": 600\n  }"
+						},
+						"url": {
+							"raw": "http://localhost:3001/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3001/category?id=1008&name =holiday&budget=100",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3001/category?id=1008&name =holiday&budget=100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"category"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1008"
+								},
+								{
+									"key": "name ",
+									"value": "holiday"
+								},
+								{
+									"key": "budget",
+									"value": "100"
+								}
+							]
+						},
+						"description": "Fail to add as params"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DeleteItemFromCategory",
+			"item": [
+				{
+					"name": "http://localhost:3001/category?id=1006",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3001/category?id=1006",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"category"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1006"
+								}
+							]
+						},
+						"description": "Item Deleted is Ok"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
