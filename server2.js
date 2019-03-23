@@ -35,10 +35,17 @@ app.get('/hello', function (req, res) {
 // GET category/all
 app.get('/category/all', function (req, res) {
     jsonfile.readFile(filePath)
+<<<<<<< HEAD
         .then((category_obj) => {
             res.writeHead(200, { 'Content-Type': 'text/plain' });
             res.end(JSON.stringify(category_obj));
             console.log("Reading server side JSON file OK.\n" + JSON.stringify(category_obj));
+=======
+        .then((obj) => {
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            res.end(JSON.stringify(obj));
+            console.log("Reading server side JSON file OK.\n" + JSON.stringify(obj));
+>>>>>>> 3135e7ff1539646dd5f9fc36d5266cb11ba31ead
         })
         .catch(() => {
             res.writeHead(500, { 'Content-Type': 'text/plain' });
@@ -59,6 +66,7 @@ app.get('/category/idsByBudgetLimit', function (req, res) {
     idsByBudgetLimit(res, budget);
 });
 
+<<<<<<< HEAD
 // app.get('/category/idsByBudgetLimit', function (req, res) {
 //     let limit = req.query.limit;
 //     let above = req.query.above;
@@ -79,6 +87,8 @@ app.get('/category/idsByBudgetLimit', function (req, res) {
 // 	}
 // });
 
+=======
+>>>>>>> 3135e7ff1539646dd5f9fc36d5266cb11ba31ead
 // POST category (id, name, budget)
 app.post('/category', function (req, res) {
     let id = req.body.id;
