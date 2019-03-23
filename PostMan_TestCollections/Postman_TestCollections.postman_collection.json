@@ -290,6 +290,42 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "GET_category_with_budget",
+			"item": [
+				{
+					"name": "http://localhost:3001/category/idsByBudgetLimit?budget=400",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3001/category/idsByBudgetLimit?budget=400",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"category",
+								"idsByBudgetLimit"
+							],
+							"query": [
+								{
+									"key": "budget",
+									"value": "400"
+								}
+							]
+						},
+						"description": "Search Category ID with budget limit (only return budget avove the param)"
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
