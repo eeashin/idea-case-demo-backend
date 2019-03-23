@@ -1,0 +1,231 @@
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 80 characters XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+pwd
+cd /c/users/valju    // Or any other not so long folder path. 
+                     // With NO spaces or special characters in folder path! 
+
+mkdir idea-case-demo-backend
+cd idea-case-demo-backend
+ls -Falls
+(copy given .json and serverNNN.js files to this folder)
+ls -Falls
+
+npm init    // (to create the packages.json file, 
+            // you can just accept all defaults with Enter, 
+            // or write something clever there)
+
+npm start     OR might have to say
+node serverNNN.js              // E.g. server2.js
+
+// => But in any case you'll get errors about missing modules, thus we will 
+// install them below
+
+// If node really started, kill it with Ctrl+C     
+// (Copy has different short cut in Linux consoles instead of Ctrl+C. E.g. Shift+Ctrl+C, or just paint or Shift+Insert
+// or something)
+
+pwd              // to make sure you are in the correct folder where package.json resides
+npm install express fs jsonfile
+
+// Let's install also the nodemon which is nicer to use than node.
+npm install -g nodemon
+
+nodemon server2.js      // Now should work. And each time you edit server2.js, Node auto-restarts
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    OLD    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   BELOW,  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   FORGET  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX           XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+
+
+Linux commands for setting up the Node.js back-end. Updated 2016-11-16
+======================================================================
+
+Remark 1: On ProtoNNN (NNN=372 etc.) DO NOT ENTER your password once you're logged in. Sudo works without password or doesn't work at all, so no need to enter password after sudo.
+
+Remark 2: There are different server.js and server2.js files out there! Make sure you are running the correct one, only one backend can be running at a time (described by server.js or server2.js).
+
+Remark 3: The server.js and server2.js might need a JSON file in the same folder. So make sure you copied both.
+
+Remark 4: You can actually have all files in same folder this time if wish (server.js, server2.js, JSON files) as long as filenames are different and you know which server.js you are running. And you have npm installed all dependencies for both.
+
+Remark 5: Remember to change your port number to all places where needed (=server.js files on backend, and e.g. AJAX request URL in frontend.)
+E.g. change 50099 or 50001 => 50066, if that is your port. You'll find your port number in a different file.
+
+Remark 6: If you change the backend (server.js) you'll need (in our setting) to restart your Node.js backend server process. 
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+LINUX COMMANDS TO JUST QUICKLY SETUP THE BACKEND onto Proto with the Putty program (https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+
+pwd
+ls -Falls
+mkdir mynodebackend
+cd mynodebackend
+ls -Falls
+
+(Now open WinSCP program https://winscp.net/eng/index.php and transfer needed server.js and JSON backend files to the folder mynodebackend)
+
+Using the WinSCP text editor, edit the server.js (and/or server2.js) and change to use your own port number as server port number and the same number to be part of the URL. = replace the current number with your number anywhere it appears. Save the file)
+
+pwd      (you should be in mynodebackend)
+ls -Falls     (you should see your backend files)
+
+npm init    (to create the packages.json file, you can just accept all defaults with Enter, or write something clever there)
+
+node server.js   (to get an error message about missing module)
+
+npm install express   (to install missing module 'express')
+
+node server.js   (to try again. In case of other kind of error: EADDRINUSE the port number is already in use => use your number. Or, if you have your old process running, open that console and press Ctrl+C to kill it)
+
+Test the backend with browser. Then with AJAX frontend.
+
+Then kil the backend with Ctrl+C
+ 
+(And so on. If need more help, read the long version below.)
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+LINUX COMMANDS TO TEST AFTER LOGGING INTO Proto with the Putty program (https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+
+exit   => closes the shell / exits from the Linux system / exit from Putty
+                 (if inside some other console, like node/mongo/mysql/mariadb console, then
+                  exit or quit or q would quit that console and come back to shell)
+
+pwd   (Print working directory => show the current folder)
+
+sudo pwd  (asks for passwd, DO NOT GIVE PASSWORD!!!, it would fail anyway = you don't have sudo rights for any programs. Which is how it should be!)
+
+node -v     tells the version of node
+
+ls          (taciturn list)
+
+ls -Falls     (More verbose list. Letters after - are options , actually ls -Fals would be the same, Falls just nice to remember)
+
+.      current folder
+..     on level towards the root folder
+
+cd .       nothing
+cd ..      go one level towards root folder
+
+clear                 Clears the screen  (You can also say "Clear rollback for Puttty" to empty the buffer)
+
+chmod 600 text* *.txt      This would give _you_ 4 read + 2 write rights to all files start with "text" or having ".txt" as file name extension, and no rights (=0) to group  and others 
+
+chmod 755 mydirectory    This would give you the right to excute(=traverse), write and read to that directory, and others the right to read (4) plus execute (1) (4+1=5), but not to write (2) in that folder.
+
+pwd
+
+cd       or    cd ~    (without folder name => go to your home folder)
+
+pwd
+
+mkdir mynodeapp (in your home folder)
+cd mynodeapp
+
+
+pwd
+ls -Falls   (empty folder)
+
+Ctrl+C     would close any app where you in right now
+
+npm init    to initialize your node app (in folder mynodeapp)
+(Then just hit enter many times to accept all defaults)
+
+ls -Falls           package.json found in the folder, right?
+
+(Take WinSCP connection to same server, copy some server2.js, person.js and players.json files to the folder mynodeapp )
+
+ls -Falls
+
+nano server.js     (nano is a text editor for editing text files)
+Remember, only keyboard works!!
+
+   (Now you would need to look at the server.js or server2.js examples to know what to write there)
+
+   Scroll to the end of the server.js file. to app.listen(
+   Change listened port number to your port, e.g. 50099
+
+   Scroll to app.get('/hello and 
+       edit it to be 
+   app.get('/50099/hello and so on.
+
+   Press Ctrl+X to exit, then Y for saving, Enter for accepting the file name.
+
+try command:
+node server2.js  (Fails because the Node modules Express, body-parser and jsonfile are missing)
+
+run commands:         (in the mynodeapp folder)
+npm install express
+npm install fs
+npm install jsonfile
+
+ls -Falls   (lot of files in node_modules folder)
+
+USE THIS!!!
+node server2.js
+
+
+go to browser and type in address
+
+http://proto372.haaga-helia.fi/50099/hello    OR
+http://proto372.haaga-helia.fi:80/50099/hello 
+
+Where 50099 is your port number!!! Change to match yours. E.g. Fall 2018 we had 5 digits in it!
+
+When you want to terminate the node process and edit the server.js USE THIS:
+Ctrl+C    (press this keyboard shortcut)
+
+node server.js >nodeslog.log 2>nodeserrors.log    (To run node again, this time redirecting logs to files to be checked later after node has crasheed)
+
+
+
+XXXXXX EXTRAS E.G. FOR HOME USE XXXXXX
+
+DO _NOT_ !!!! USE THIS AT SCHOOL:
+
+node server2.js &        (& means run in the background, not able to terminate it with Ctrl+C from same console anymore)
+
+(Some of the following ones need to be run with sudo to see all info. They are still written without sudo so that you would not use sudo at all in school!!!)
+
+whoami       your username e.g. a1234567
+users        lists all users logged in atm.
+
+id -u a1234567  => What is the UID (Linux user id) for yourself?, e.g. 34 or 1099
+
+netstat -tulpn      (With sudo, but only at home) to find out the PID
+ps -All    Everybody's processes with PIDs and UIDs
+ps -all    Everybody's processes, slightly different list, a and A are different options
+
+getent passwd 1099      to see what's the username for UID 1099
+
+ps -u 1099   (Where 1099 is your UID)
+
+At home you'll be able to kill processes (even more than just with Ctrl+C)
+kill -9 12345   where 12345 = PID is the node process ' id     (with sudo)
+
+(Btw. selecting with left mouse button in Putty = Copy, go to right place in text file or console 
+and Right button = Paste)
+
+
+
+
+
+
+
+
+
